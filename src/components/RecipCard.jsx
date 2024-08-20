@@ -1,6 +1,7 @@
 "use client"
 
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
+import Image from "next/image"
 
 import { useRouter } from "next/navigation"
 
@@ -12,12 +13,7 @@ function RecipCard({item}) {
   
   return (
     <Card sx={{height: "300px", maxWidth: "355px" , backgroundColor : "pink", overflowY : "visible"}}>
-        <CardMedia
-        component="img"
-        alt="food"
-        height="160"
-        image={item.image}
-      />
+      <Image height={200} width={340} src={item.image}/>
     <CardContent>
       <Typography gutterBottom variant="h5" component="div">
         {item.name}

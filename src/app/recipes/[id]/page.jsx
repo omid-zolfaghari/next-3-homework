@@ -2,6 +2,13 @@ import { getData } from "@/utils/fetchData";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
+export async function generateMetadata({params}) {
+  return{
+    title : `Recipe - ${params.id}`,
+    description : "Recipe of dummyjson"
+  }
+}
+
 export default async function page({params}) {
     const data = await getData(`https://dummyjson.com/recipes/${params.id}`);
   return (

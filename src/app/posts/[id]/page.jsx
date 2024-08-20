@@ -1,8 +1,15 @@
 import { getData } from "@/utils/fetchData";
 import { Container, Stack, Typography } from "@mui/material";
 
+export async function generateMetadata({params}) {
+  return{
+    title : `Post - ${params.id}`,
+    description : "Post of dummyjson"
+  }
+}
 
 export default async function page({params}) {
+  
   const data = await getData(`https://dummyjson.com/posts/${params.id}`);
 
   return (
