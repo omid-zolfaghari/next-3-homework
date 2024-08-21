@@ -7,7 +7,7 @@ import RecipCard from "@/components/RecipCard";
 
 
 export default async function Home() {
-  const data = await getData("https://dummyjson.com/users");
+  const data = await getData("http://localhost:3000/api/users");
   const data2 = await getData("https://dummyjson.com/posts");
   const data3 = await getData("https://dummyjson.com/recipes")
   
@@ -21,7 +21,7 @@ export default async function Home() {
       </Box>
     <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data.users.map((user) =>{
+      data.map((user) =>{
         return <UserCard key={user.id} item={user}/>
       })
      }

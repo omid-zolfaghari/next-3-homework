@@ -15,7 +15,7 @@ const Ucard = dynamic(()=>import("../../components/UserCard"), {
 })
 
 export default async function page() {
-  const data = await getData("https://dummyjson.com/users");
+  const data = await getData("http://localhost:3000/api/users");
 
   return (
     <Container>
