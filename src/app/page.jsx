@@ -7,9 +7,9 @@ import RecipCard from "@/components/RecipCard";
 
 
 export default async function Home() {
-  const data = await getData("http://localhost:3000/api/users");
-  const data2 = await getData("https://dummyjson.com/posts");
-  const data3 = await getData("https://dummyjson.com/recipes")
+   const data = await getData("http://localhost:3000/api/users");
+   const data2 = await getData("http://localhost:3000/api/posts");
+   const data3 = await getData("http://localhost:3000/api/recipes")
   
   return (
     <>
@@ -34,7 +34,7 @@ export default async function Home() {
       </Box>
       <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data2.posts.map((post) =>{
+      data2.map((post) =>{
         return <PostCard key={post.id} item={post}/>
       })
      }
@@ -46,7 +46,7 @@ export default async function Home() {
       </Box>
       <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data3.recipes.map((recipe) =>{
+      data3.map((recipe) =>{
         return <RecipCard key={recipe.id} item={recipe}/>
       })
      }

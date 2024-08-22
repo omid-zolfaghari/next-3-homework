@@ -10,7 +10,7 @@ export async function generateMetadata({params}) {
 }
 
 export default async function page({params}) {
-    const data = await getData(`https://dummyjson.com/recipes/${params.id}`);
+    const data = await getData(`http://localhost:3000/api/recipes/${params.id}`);
   return (
     <Container sx={{marginY : "8rem",display : "flex", alignItems : "center",justifyContent : "center", height : "500px"}}>
     <Stack direction="column" gap={4} justifyContent= "center" alignItems="center">
@@ -29,9 +29,6 @@ export default async function page({params}) {
     <Box>
    <Image style={{borderRadius : "10px"}} alt="food" width={350} height={250} src={data.image} />
     </Box>
-    <Typography color="error" variant="h4">
-        {`User id : ${data.userId}`}
-      </Typography>
     </Stack>
   </Container>
   )

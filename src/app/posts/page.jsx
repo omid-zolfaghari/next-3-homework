@@ -15,8 +15,9 @@ const Pcard = dynamic(()=>import("../../components/PostCard"), {
 })
 
 export default async function page() {
-  
-  const data2 = await getData("https://dummyjson.com/posts");
+
+  const data2 = await getData("http://localhost:3000/api/posts");
+
 
   return (
     <Container>
@@ -27,7 +28,7 @@ export default async function page() {
       </Box>
       <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data2.posts.map((post) =>{
+      data2.map((post) =>{
         return <Pcard key={post.id} item={post}/>
       })
      }

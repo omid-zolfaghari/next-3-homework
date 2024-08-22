@@ -17,7 +17,10 @@ export default async function page({params}) {
           {`User id : ${params.id}`}
         </Typography>
       <Typography variant="h3">
-        {`Name : ${data.firstName + " " + data.lastName}`}
+        {`Name : ${data.firstName}`}
+      </Typography>
+      <Typography variant="h3">
+        {`Last name : ${data.lastName}`}
       </Typography>
       <Typography variant="h4">
         {`Age : ${data.age}`}

@@ -26,7 +26,7 @@ export default async function page() {
       </Box>
     <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data.users.map((user) =>{
+      data.map((user) =>{
         return <Ucard key={user.id} item={user}/>
       })
      }

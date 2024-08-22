@@ -6,10 +6,13 @@ export async function GET(req, {params}) {
 }
 
 export async function PATCH(req, {params}) {
-    const {firstName, lastName} = await req.json();
+    const {firstName, lastName, age, email} = await req.json();
     const index = userData.findIndex(user => user.id === params.id);
     userData[index].firstName = firstName;
     userData[index].lastName = lastName;
+    userData[index].age = age;
+    userData[index].email = email;
+
     return Response.json(userData[index])
 }
 

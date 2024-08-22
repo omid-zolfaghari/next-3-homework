@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 export const userData = [
     {
         id : "1",
@@ -57,6 +59,6 @@ export async function GET(req) {
 
 export async function POST(req) {
     const body = await req.json()
-    userData.push(body)
+    userData.push({...body, id : uuid()})
     return Response.json(userData)
 }
