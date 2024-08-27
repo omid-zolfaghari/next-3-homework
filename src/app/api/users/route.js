@@ -1,3 +1,4 @@
+import { unstable_cache, unstable_noStore } from "next/cache";
 import { v4 as uuid } from "uuid";
 
 export const userData = [
@@ -46,6 +47,7 @@ export const userData = [
 ]
 
 export async function GET(req) {
+    unstable_noStore()
     const searchParams = req.nextUrl.searchParams;
     const query = searchParams.get("q")
 

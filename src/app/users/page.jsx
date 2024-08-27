@@ -1,6 +1,7 @@
 import UserCard from "@/components/UserCard";
 import { getData } from "@/utils/fetchData";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import { unstable_noStore } from "next/cache";
 import dynamic from "next/dynamic";
 
 export async function generateMetadata() {
@@ -15,6 +16,8 @@ const Ucard = dynamic(()=>import("../../components/UserCard"), {
 })
 
 export default async function page() {
+  unstable_noStore()
+
   const data = await getData("http://localhost:3000/api/users");
 
   return (

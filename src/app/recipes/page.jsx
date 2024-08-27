@@ -1,6 +1,7 @@
 import RecipCard from "@/components/RecipCard";
 import { getData } from "@/utils/fetchData";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import { unstable_noStore } from "next/cache";
 import dynamic from "next/dynamic";
 
 
@@ -16,7 +17,7 @@ const Rcard = dynamic(()=>import("../../components/RecipCard"), {
 })
 
 export default async function page() {
-  
+  unstable_noStore()
   const data3 = await getData("http://localhost:3000/api/recipes")
   
   return (

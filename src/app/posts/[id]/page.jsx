@@ -1,5 +1,6 @@
 import { getData } from "@/utils/fetchData";
 import { Container, Stack, Typography } from "@mui/material";
+import { unstable_noStore } from "next/cache";
 
 export async function generateMetadata({params}) {
   return{
@@ -9,7 +10,7 @@ export async function generateMetadata({params}) {
 }
 
 export default async function page({params}) {
-  
+  unstable_noStore()
   const data = await getData(`http://localhost:3000/api/posts/${params.id}`);
 
   return (

@@ -21,7 +21,9 @@ const navItems = [
     {title : "Home", route : "/"},
     {title : "Users", route : "/users"},
     {title : "Posts", route : "/posts"},
-    {title : "Recipes", route : "/recipes"}
+    {title : "Recipes", route : "/recipes"},
+    {title : "Admin", route : "/admin"}
+
 ]
 
 function Header() {

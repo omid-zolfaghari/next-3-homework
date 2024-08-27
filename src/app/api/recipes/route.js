@@ -20,7 +20,6 @@ export const recipeData = [
             "Bake in the preheated oven for 12-15 minutes or until the crust is golden brown.",
             "Slice and serve hot."
             ],
-        image : "https://cdn.dummyjson.com/recipe-images/1.webp",
         userID : 166
     },
     {
@@ -45,7 +44,6 @@ export const recipeData = [
             "Pour soy sauce over the stir-fry and toss to combine.",
             "Serve over cooked rice."
             ],
-        image : "https://cdn.dummyjson.com/recipe-images/2.webp",
         userId: 143
     },
     {
@@ -72,7 +70,6 @@ export const recipeData = [
             "Bake for 10-12 minutes or until edges are golden brown.",
             "Allow cookies to cool on the baking sheet for a few minutes before transferring to a wire rack."
             ],
-        image : "https://cdn.dummyjson.com/recipe-images/3.webp",
         userId: 34
     },
     {
@@ -97,7 +94,6 @@ export const recipeData = [
             "Combine the Alfredo sauce with cooked pasta.",
             "Garnish with fresh parsley before serving."
             ],
-        image : "https://cdn.dummyjson.com/recipe-images/4.webp",
         userId: 136
     },
     {
@@ -120,7 +116,6 @@ export const recipeData = [
 "Dice the cooked chicken and mix it with the mango salsa.",
 "Serve over cooked rice."
 ],
-        image : "https://cdn.dummyjson.com/recipe-images/5.webp",
         userId : 97
     },
     {
@@ -142,7 +137,6 @@ export const recipeData = [
             "Season with salt and pepper to taste.",
             "Chill in the refrigerator before serving."
             ],
-        image : "https://cdn.dummyjson.com/recipe-images/6.webp",
         userId : 37
     }
 ]

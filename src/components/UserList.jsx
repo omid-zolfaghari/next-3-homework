@@ -6,32 +6,50 @@ import { useState } from "react";
 
 
 function UserList({users}) {
-const [editedValue, setEditedValue] = useState({
-    firstName : "", lastName : "", age : "", email: ""
-})
+  const [value, setValue] = useState(users)
 
-    async function handleEdit(e, url) {
-        e.preventDefault()
-        edit(url, editedValue)
-        setEditedValue()
-    }
+    
   return (
     <List sx={{ my:"2", display : "flex", justifyContent : "center", gap :"10px", flexWrap : "wrap"}}>
-      {users.map((user)=>(
+      {value.map((user)=>(
           <Box key={user.id}>
             <ListItem>
-                <form style={{display :"flex", flexDirection:"column", gap:"10px"}} onSubmit={(e)=>handleEdit(e, `http://localhost:3000/api/users/${user.id}`)}>
+                <form style={{display :"flex", flexDirection:"column", gap:"10px"}} onSubmit={async(e)=>{
+                  e.preventDefault() 
+                await edit(`http://localhost:3000/api/users/${user.id}`, user)
+                }
+                }>
                <ListItemText>
-                <TextField placeholder="edit first name"  onChange={(e)=> setEditedValue({...editedValue, firstName: e.target.value})}  defaultValue={user.firstName}/>
+                <TextField label = "edit first name" placeholder="edit first name" onChange={(e)=>{
+                  const index = value.findIndex(item => item.id === user.id)
+                  const arr = [...value]
+                  arr[index].firstName = e.target.value
+                  setValue(arr)
+                } }  value={user.firstName}/>
                </ListItemText>
                <ListItemText>
-                <TextField placeholder="edit last name"  onChange={(e)=> setEditedValue({...editedValue, lastName: e.target.value})} defaultValue={user.lastName}/>
+                <TextField label = "edit last name" placeholder="edit last name"  onChange={(e)=>{
+                  const index = value.findIndex(item => item.id === user.id)
+                  const arr = [...value]
+                  arr[index].lastName = e.target.value
+                  setValue(arr)
+                } } value={user.lastName}/>
                </ListItemText>
                <ListItemText>
-                <TextField placeholder="edit age" onChange={(e)=> setEditedValue({...editedValue, age: e.target.value})} defaultValue={user.age}/>
+                <TextField label = "edit age"  placeholder="edit age" onChange={(e)=>{
+                  const index = value.findIndex(item => item.id === user.id)
+                  const arr = [...value]
+                  arr[index].age = e.target.value
+                  setValue(arr)
+                } } value={user.age}/>
                </ListItemText>
                <ListItemText>
-                <TextField placeholder="edit email" type="email" onChange={(e)=> setEditedValue({...editedValue, email: e.target.value})} defaultValue={user.email}/>
+                <TextField label = "edit email" placeholder="edit email" type="email" onChange={(e)=>{
+                  const index = value.findIndex(item => item.id === user.id)
+                  const arr = [...value]
+                  arr[index].email = e.target.value
+                  setValue(arr)
+                } } value={user.email}/>
                </ListItemText>
                <Button variant="contained" color="error" onClick={()=>deleteSome(`http://localhost:3000/api/users/${user.id}`)}>
                 delete
