@@ -1,6 +1,7 @@
 import { getData } from "@/utils/fetchData";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { unstable_noStore } from "next/cache";
+
 
 export async function generateMetadata({params}) {
   return{
@@ -10,7 +11,8 @@ export async function generateMetadata({params}) {
 }
 
 export default async function page({params}) {
-    const data = await getData(`https://dummyjson.com/recipes/${params.id}`);
+  unstable_noStore()
+    const data = await getData(`http://localhost:3000/api/recipes/${params.id}`);
   return (
     <Container sx={{marginY : "8rem",display : "flex", alignItems : "center",justifyContent : "center", height : "500px"}}>
     <Stack direction="column" gap={4} justifyContent= "center" alignItems="center">
@@ -26,12 +28,6 @@ export default async function page({params}) {
     <Typography variant="body1">
       {`instructions : ${data.instructions}`}
     </Typography>
-    <Box>
-   <Image style={{borderRadius : "10px"}} alt="food" width={350} height={250} src={data.image} />
-    </Box>
-    <Typography color="error" variant="h4">
-        {`User id : ${data.userId}`}
-      </Typography>
     </Stack>
   </Container>
   )

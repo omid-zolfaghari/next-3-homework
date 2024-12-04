@@ -13,7 +13,6 @@ function RecipCard({item}) {
   
   return (
     <Card sx={{height: "300px", maxWidth: "355px" , backgroundColor : "pink", overflowY : "visible"}}>
-      <Image height={200} width={340} src={item.image}/>
     <CardContent>
       <Typography gutterBottom variant="h5" component="div">
         {item.name}

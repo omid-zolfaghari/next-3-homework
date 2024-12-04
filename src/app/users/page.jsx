@@ -1,6 +1,7 @@
 import UserCard from "@/components/UserCard";
 import { getData } from "@/utils/fetchData";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import { unstable_noStore } from "next/cache";
 import dynamic from "next/dynamic";
 
 export async function generateMetadata() {
@@ -15,7 +16,9 @@ const Ucard = dynamic(()=>import("../../components/UserCard"), {
 })
 
 export default async function page() {
-  const data = await getData("https://dummyjson.com/users");
+  unstable_noStore()
+
+  const data = await getData("http://localhost:3000/api/users");
 
   return (
     <Container>
@@ -26,7 +29,7 @@ export default async function page() {
       </Box>
     <Stack justifyContent ="center" alignItems="center" gap= "2rem" flexWrap="wrap" direction="row">
      {
-      data.users.map((user) =>{
+      data.map((user) =>{
         return <Ucard key={user.id} item={user}/>
       })
      }

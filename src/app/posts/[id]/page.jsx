@@ -1,5 +1,6 @@
 import { getData } from "@/utils/fetchData";
 import { Container, Stack, Typography } from "@mui/material";
+import { unstable_noStore } from "next/cache";
 
 export async function generateMetadata({params}) {
   return{
@@ -9,8 +10,8 @@ export async function generateMetadata({params}) {
 }
 
 export default async function page({params}) {
-  
-  const data = await getData(`https://dummyjson.com/posts/${params.id}`);
+  unstable_noStore()
+  const data = await getData(`http://localhost:3000/api/posts/${params.id}`);
 
   return (
     <Container sx={{display : "flex", alignItems : "center", height : "500px"}}>
@@ -24,9 +25,6 @@ export default async function page({params}) {
       <Typography variant="body1">
         {data.body}
       </Typography>
-      <Typography color="error" variant="h4">
-          {`User id : ${data.userId}`}
-        </Typography>
       </Stack>
     </Container>
   )
